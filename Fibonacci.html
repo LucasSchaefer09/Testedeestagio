@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Número na Sequência de Fibonacci</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Verificar Sequência de Fibonacci</h1>
+    <input type="number" id="numero" placeholder="Informe um número">
+    <button onclick="verificarFibonacci()">Verificar</button>
+    <p id="resultado"></p>
+</div>
+
+<script>
+    function verificarFibonacci() {
+        let numero = parseInt(document.getElementById('numero').value);
+        let a = 0, b = 1;
+        let pertence = false;
+
+        if (numero === 0 || numero === 1) {
+            pertence = true;
+        } else {
+            while (b <= numero) {
+                let temp = a + b;
+                a = b;
+                b = temp;
+                if (b === numero) {
+                    pertence = true;
+                    break;
+                }
+            }
+        }
+
+        if (pertence) {
+            document.getElementById('resultado').textContent = `O número ${numero} pertence à sequência de Fibonacci.`;
+        } else {
+            document.getElementById('resultado').textContent = `O número ${numero} NÃO pertence à sequência de Fibonacci.`;
+        }
+    }
+</script>
+
+</body>
+</html>

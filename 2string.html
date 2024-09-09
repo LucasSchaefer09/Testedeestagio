@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Letra "A" em String</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Verificar Letras "A" ou "a"</h1>
+    <input type="text" id="texto" placeholder="Digite uma string">
+    <button onclick="verificarLetra()">Verificar</button>
+    <p id="resultado"></p>
+</div>
+
+<script>
+    function verificarLetra() {
+        let texto = document.getElementById('texto').value;
+        let contador = 0;
+
+        // Conta a ocorrência de 'a' minúsculo e 'A' maiúsculo
+        for (let i = 0; i < texto.length; i++) {
+            if (texto[i] === 'a' || texto[i] === 'A') {
+                contador++;
+            }
+        }
+
+        if (contador > 0) {
+            document.getElementById('resultado').textContent = `A letra "a" ou "A" aparece ${contador} vez(es) na string.`;
+        } else {
+            document.getElementById('resultado').textContent = `A letra "a" ou "A" não aparece na string.`;
+        }
+    }
+</script>
+
+</body>
+</html>
